@@ -36,6 +36,9 @@ There is no test implemented in the system at the moment.
 
 There is no deployment for this system at the moment
 
+## Document
+[DOCUMENT.md](https://github.com/FungusGaming/xen-electronic-exercise/blob/master/DOCUMENT.md)
+
 ## Built With
 MERN Stack
 * [Mongoose](https://mongoosejs.com/docs/guide.html) - The elegant mongodb object modeling for node.js
