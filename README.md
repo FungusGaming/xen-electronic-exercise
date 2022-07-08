@@ -48,11 +48,7 @@ MERN Stack
 
 ## Contributing
 
-No contributing allowed. This project is for owner.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+No contributing allowed. This project is for owner. 
 
 ## Authors
 
