@@ -1,39 +1,220 @@
-.App {
-  text-align: center;
+:root {
+  --white-color: white;
+  --main-background: #FAFAFA;
+  --currency-color: darkgreen;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+/* basic */
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
-.App-header {
-  min-height: 100vh;
+.flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.flex-one {
+  flex: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-center {
   align-items: center;
+}
+.align-end {
+  align-items: flex-end;
+}
+
+.justify-center {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.justify-end {
+  justify-content: flex-end;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.p-l {
+  padding: 1rem;
+}
+.pl-l {
+  padding-left: 1rem;
+}
+.pr-l {
+  padding-right: 1rem;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.pv-l {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.p-m {
+  padding: 0.5rem;
+}
+
+.ph-m {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.mb-xl {
+  margin-bottom: 2rem;
+}
+.mr-xl {
+  margin-right: 2rem;
+}
+.m-l {
+  margin: 1rem;
+}
+.mr-l {
+  margin-right: 1rem;
+}
+.mb-l {
+  margin-bottom: 1rem;
+}
+.mt-l {
+  margin-top: 1rem;
+}
+.mh-l {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.mt-m {
+  margin-top: 0.5rem;
+}
+.ml-m {
+  margin-left: 0.5rem;
+}
+
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* color */
+.color-white {
+  color: var(--white-color);
+}
+.color-currency {
+  color: var(--currency-color);
+}
+
+.b-main {
+  background-color: var(--main-background);
+}
+.b-white {
+  background-color: white;
+}
+/* end-color */
+
+/* font */
+.font-bold {
+  font-weight: bold;
+}
+
+/* custom */
+.app {
+  min-height: 100vh;
+}
+
+.product-card {
+  position: relative;
+  max-width: 28vw;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px rgb(0, 0, 0, 25%);
+}
+
+.product-img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.product-edit {
+  position: absolute;
+  right: 0;
+  padding: 0.3rem;
+  opacity: 0.5;
+}
+
+.product-edit:hover{
+  opacity: 1;
+}
+
+.custom-input-container {
+  background: #d7d7d7;
+  border-radius: 5px;
+  position: relative;
+  padding: 0.5rem 0.75rem;
+}
+
+.custom-input {
+  background: inherit;
+  outline: 0;
+  border-width: 0;
+  border-radius: inherit;
+  padding: 1.25rem 0 0.25rem;
+  width: 100%;
+}
+
+.custom-input-label  {
+  font-size: 0.6rem;
+  position: absolute;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+}
+
+.grid-header {
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.product-action-button {
+  opacity: 0.7;
+}
+
+.product-action-button:hover {
+  opacity: 1;
+}
+
+/* header */
+.count-badge {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 5px;
+  font-size: 0.6rem;
+}
+
+.trans-button {
+  background-color: inherit;
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
 }
