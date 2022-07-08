@@ -2,6 +2,8 @@
   --white-color: white;
   --main-background: #FAFAFA;
   --currency-color: darkgreen;
+  --red-color: red;
+  --primary-color: #2e856e;
 }
 
 * {
@@ -118,6 +120,9 @@
 .color-currency {
   color: var(--currency-color);
 }
+.color-red {
+  color: var(--red-color);
+}
 
 .b-main {
   background-color: var(--main-background);
@@ -147,6 +152,10 @@
 .product-img {
   width: 100%;
   border-radius: 5px 5px 0 0;
+}
+.thumbnail-img {
+  max-width: 40px;
+  border-radius: 50%;
 }
 
 .product-edit {
@@ -205,7 +214,7 @@
   position: absolute;
   right: -10px;
   top: -10px;
-  background-color: red;
+  background-color: var(--red-color);
   color: white;
   border-radius: 50%;
   padding: 3px 5px;
@@ -217,4 +226,13 @@
   border: none;
   padding: 0 10px;
   cursor: pointer;
+}
+.primary-button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 10px 30px;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
 }
