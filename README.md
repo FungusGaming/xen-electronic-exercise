@@ -41,7 +41,7 @@ MERN Stack
 * [Mongoose](https://mongoosejs.com/docs/guide.html) - The elegant mongodb object modeling for node.js
 * [Express](https://expressjs.com/) - Node.js web application framework
 * [React](https://reactjs.org/) - Building user interfaces
-* [React](https://nodejs.org/en/) - JavaScript runtime built on Chrome's V8 JavaScript engine.
+* [Node](https://nodejs.org/en/) - JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ## Contributing
 
