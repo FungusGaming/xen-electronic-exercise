@@ -17,10 +17,9 @@ React redux to storing the cart data temporary.
 #### If saving in backend
 - how to determine whose cart
 - require to remove after checkout
-- 
 
 ### Unit test for backend and frontend
-- 
+- Unit test going to be explore
 
 ## Document criteria for assessment
 ### Application
@@ -65,8 +64,8 @@ to start both application (Used concurrently lib to run both site at same time)
 
 ## TODO
 - upon checkout add cart data to backend
-- eslint
-- nyc
+- eslint format
+- nyc script
 - pre-push
 - unit test
 - sql injection for mongo
