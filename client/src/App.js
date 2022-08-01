@@ -1,12 +1,16 @@
 import React from 'react';
 // import { Counter } from './features/counter/Counter';
-import './App.css';
+import { useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NoMatch from './pages/NoMatch';
 import ProductList from './pages/ProductList';
 import CartList from './pages/CartList';
+import { ctaMessage } from './features/message/messageSlice';
+import CtaMessage from './components/CtaMessage';
+import './App.css';
 
 function App() {
+  const ctaMessageObj = useSelector(ctaMessage)
   return (
     <div className="app flex-column">
       <BrowserRouter>
@@ -16,6 +20,7 @@ function App() {
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </BrowserRouter>
+      { ctaMessageObj.isShowMessage && <CtaMessage content={ctaMessageObj.content}/>}
     </div>
   );
 }
