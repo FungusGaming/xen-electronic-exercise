@@ -99,6 +99,9 @@
 .ml-m {
   margin-left: 0.5rem;
 }
+.mr-m {
+  margin-right: 0.5rem;
+}
 
 
 .p-relative {
@@ -107,6 +110,10 @@
 
 .p-absolute {
   position: absolute;
+}
+.p-absolute-br {
+  bottom: 0;
+  right: 0;
 }
 
 .pointer {
@@ -220,6 +227,7 @@
   padding: 3px 5px;
   font-size: 0.6rem;
 }
+/* end header */
 
 .trans-button {
   background-color: inherit;
@@ -236,3 +244,6 @@
   font-weight: bold;
   text-decoration: none;
 }
+
+/* cta-message */
+/* end cta-message */
