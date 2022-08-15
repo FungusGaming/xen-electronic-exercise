@@ -4,4 +4,6 @@ const AppConfig = {
   }
 }
 
+export const timeoutTimer = 3000;
+
 export default AppConfig

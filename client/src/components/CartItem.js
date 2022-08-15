@@ -3,10 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../features/cart/cartSlice";
 import SampleImg from '../assets/img/SampleImage.png'
+import { setMessage } from "../features/message/messageSlice";
+import { useCallback } from "react";
 
 const CartItem = ({ item, index }) => {
   const { name, price } = item
   const dispatch = useDispatch();
+  const removeItemFromCart = useCallback(() => {
+    dispatch(removeFromCart(index))
+    dispatch(setMessage('Product removed'))
+  }, [dispatch, index])
   return (
     <div id='cart-item' className="flex-row align-center">
       <div className="flex-row align-center space-between p-l flex-one">
@@ -16,7 +22,7 @@ const CartItem = ({ item, index }) => {
         </div>
         <div>{price}</div>
       </div>
-      <div className="pointer p-m color-red" onClick={() => dispatch(removeFromCart(index))}>
+      <div className="pointer p-m color-red" onClick={removeItemFromCart}>
         <FontAwesomeIcon icon={faMinus} />
       </div>
     </div>

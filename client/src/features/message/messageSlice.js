@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const timeoutTimer = 3000;
-
 const initialState = {
   isShowMessage: false,
   content: '',
@@ -16,24 +14,17 @@ export const messageSlice = createSlice({
       state.content = action.payload;
       state.isShowMessage = true;
       state.autoClose = true;
-      setTimeout(() => {
-        if(state.autoClose) {
-          resetMessage()
-        }
-      }, timeoutTimer)
-    },
-    closeMessage: () => {
-      resetMessage()
     },
     resetMessage: (state) => {
-      state.content = initialState.content
+      state.content = initialState.content;
       state.isShowMessage = initialState.isShowMessage;
       state.autoClose = initialState.autoClose;
     }
   }
 })
 
-export const { setMessage, closeMessage, resetMessage } = messageSlice.actions;
+export const { setMessage, resetMessage } = messageSlice.actions;
 export const ctaMessage = (state) => state.message;
+export const ctaMessageAutoClose = (state) => state.message.autoClose;
 
 export default messageSlice.reducer;

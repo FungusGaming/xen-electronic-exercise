@@ -9,9 +9,7 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      console.log('addToCart', action);
       state.items = [ ...state.items, action.payload ];
-      console.log('state.items', state.items);
     },
     removeFromCart: (state, action) => {
       state.items.splice(action.payload, 1);
