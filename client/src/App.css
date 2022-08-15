@@ -102,6 +102,9 @@
 .mr-m {
   margin-right: 0.5rem;
 }
+.mb-m {
+  margin-bottom: 0.5rem;
+}
 
 
 .p-relative {
@@ -151,9 +154,10 @@
 
 .product-card {
   position: relative;
-  max-width: 28vw;
+  max-width: 30%;
   border-radius: 5px;
   box-shadow: 4px 4px 4px rgb(0, 0, 0, 25%);
+  flex: 1 30%;
 }
 
 .product-img {
