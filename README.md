@@ -37,7 +37,7 @@ There is no test implemented in the system at the moment.
 There is no deployment for this system at the moment
 
 ## Document
-[DOCUMENT.md](https://github.com/FungusGaming/xen-electronic-exercise/blob/master/DOCUMENT.md)
+[DOCUMENT.md](/DOCUMENT.md)
 
 ## Built With
 MERN Stack
