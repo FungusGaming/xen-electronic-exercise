@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Render App', () => {
   render(
     <Provider store={store}>
       <App />
     </Provider>
   );
 
-  expect(screen.getByText(/404/i)).toBeInTheDocument();
+  expect(screen.getByText(/XenElectronic/i)).toBeInTheDocument();
 });
