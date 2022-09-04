@@ -13,10 +13,6 @@ MongoDB Atlas cloud
 
 ### Cart system
 React redux to storing the cart data temporary.
-#### Why?
-#### If saving in backend
-- how to determine whose cart
-- require to remove after checkout
 
 ### Unit test for backend and frontend
 - Unit test going to be explore
@@ -61,14 +57,13 @@ to start both application (Used concurrently lib to run both site at same time)
 - [ ] Front-end
 - [ ] Back-end
 
-
 ## TODO
-- upon checkout add cart data to backend
-- eslint format
-- nyc script
-- pre-push
-- unit test
-- sql injection for mongo
+- "opinionated" eslint format (ongoing on FE)
+- unit test (ongoing on FE)
 - login credential for express
+- upon checkout add cart data to backend
 - express-session
 - deployment
+- pre-push
+- nyc script
+- sql injection for mongo
