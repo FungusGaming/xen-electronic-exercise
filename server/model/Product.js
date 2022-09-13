@@ -1,15 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const { mongoose } = require('mongoose');
 const message = require('../constant/message')
-mongoose.connect('mongodb+srv://fungus:Yy24BL3XTphbSy1q@fungusnodeexpress.wa1ov.mongodb.net/?retryWrites=true&w=majority')
-.then(() => {
-  console.log('Product Connection opened')
-})
-.catch(err => {
-  console.log('Product Error:')
-  console.log(err);
-})
+const { mongoose } = require('mongoose');
 
 const Product = {
   name: {
