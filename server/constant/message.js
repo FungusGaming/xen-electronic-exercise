@@ -4,6 +4,16 @@ const message = {
   },
   fail: {
     status: false,
+  },
+  auth: {
+    passwordInvalid: {
+      status: false,
+      message: 'Password invalid'
+    },
+    requireAuth: {
+      status: false,
+      message: 'Login require'
+    }
   }
 }
 
