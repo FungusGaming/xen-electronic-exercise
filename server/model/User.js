@@ -39,16 +39,24 @@ router.post('/', async (req, res) => {
   res.json(message.success)
 })
 
-router.get('/', async (req, res) => {
-  const { username, password } = req.body
-  const user = await userModel.findOne({ username })
-  const validPassword = await bcrypt.compare(password, user.password)
-  if (validPassword) {
-    req.session.user_id = user._id
-    res.json(message.success)
-  } else {
-    req.session.user_id = null
-    res.json(message.auth.passwordInvalid)
+router.post('/signin', async (req, res) => {
+  try {
+    const { username, password } = req.body
+    const user = await userModel.findOne({ username })
+    if (!user) {
+      res.status(message.auth.userNotFound.status).json(message.auth.userNotFound)
+    }
+    const validPassword = await bcrypt.compare(password, user.password)
+    if (validPassword) {
+      req.session.user_id = user._id
+      res.json(message.success)
+    } else {
+      req.session.user_id = null
+      res.json(message.auth.passwordInvalid)
+    }
+  } catch(err) {
+    console.log(err);
+    res.status(404).json(message.fail)
   }
 })
 
