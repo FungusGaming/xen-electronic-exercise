@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import API from '../app/api'
 import ProductCard from '../components/ProductCard'
 import Footer from '../layout/footer'
 import Header from '../layout/header'
@@ -7,7 +7,7 @@ import Header from '../layout/header'
 const ProductList = () => {
   const [products, setProducts] = useState([])
   const getProductList = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}/product`).then(({ data }) => {
+    API.getAllProduct().then(({ data }) => {
       setProducts(data)
     })
   }

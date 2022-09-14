@@ -1,3 +1,4 @@
+import React from 'react'
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useSelector } from "react-redux"
@@ -33,7 +34,7 @@ const CartList = () => {
             <Link className="primary-button" to="/">Shop something</Link>
           </div> : <div id='cart-list-item'>
             {items.map((item, index) => (
-              <CartItem item={item} index={index} />
+              <CartItem item={item} index={index} key={index} />
             ))}
             <div className="flex-row align-center justify-end p-l mr-xl">
               <div>Total:&nbsp;</div>
