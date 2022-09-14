@@ -67,3 +67,4 @@ to start both application (Used concurrently lib to run both site at same time)
 - pre-push
 - nyc script
 - sql injection for mongo
+- pagination on product list (BE and FE)
