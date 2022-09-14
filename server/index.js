@@ -24,12 +24,12 @@ const sessionOptions = {
 }
 app.set('views', path.join(__dirname, 'views'))
 
+app.use(session(sessionOptions))
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/product', productRouter)
 app.use('/user', userRouter)
-app.use(session(sessionOptions))
 
 // error handler
 app.use((err, req, res, next) => {
