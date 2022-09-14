@@ -17,4 +17,4 @@ const message = {
   }
 }
 
-module.export = message
+module.exports = message

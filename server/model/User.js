@@ -1,6 +1,7 @@
 const { mongoose } = require('mongoose')
 const express = require('express')
 const bcrypt = require('bcrypt')
+const message = require('../constant/message')
 
 const router = express.Router()
 const SALT = 12
@@ -20,12 +21,13 @@ const userSchema = new mongoose.Schema({
   }
 })
 
-const userModel = new mongoose.model('User', userSchema)
 userSchema.pre('save', async function(next) {
-  if(this.isModified('password')) return next()
+  if(!this.isModified('password')) return next()
   this.password = await bcrypt.hash(this.password, SALT)
   next()
 })
+
+const userModel = mongoose.model('User', userSchema)
 
 router.post('/', async (req, res) => {
   const { password, username } = req.body
