@@ -13,6 +13,10 @@ const message = {
     requireAuth: {
       status: false,
       message: 'Login require'
+    },
+    userNotFound: {
+      status: 400,
+      message: 'User not exist'
     }
   }
 }
