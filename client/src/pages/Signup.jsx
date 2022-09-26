@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import API from '../app/api'
-import handleAxiosError from '../app/handleAxiosError';
+import { handleAxiosError } from '../app/function';
 import { setMessage } from '../features/message/messageSlice';
 import BasicLayout from '../layout/basic';
 

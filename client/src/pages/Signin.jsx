@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import API from '../app/api'
-import handleAxiosError from '../app/handleAxiosError';
+import { handleAxiosError } from '../app/function';
 import { setMessage } from '../features/message/messageSlice';
 import BasicLayout from '../layout/basic';
 
@@ -13,11 +13,23 @@ const Signin = () => {
   })
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  useEffect(() => {
+    handleSync()
+  }, [])
 
   const handleOnChange = useCallback(e => {
     const { name, value } = e.target
     setInputValues({ ...inputValues, [name]: value })
   })
+
+  const handleSync = () => {
+    API.sync().then(() => {
+      dispatch(setMessage('Signing in'))
+      navigate('/')
+    }).catch(err => {
+      dispatch(setMessage(handleAxiosError(err)))
+    })
+  }
 
   const handleSignIn = useCallback(() => {
     API.signin({ username: inputValues.username, password: inputValues.password }).then(() => {
