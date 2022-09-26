@@ -7,11 +7,11 @@ const message = {
   },
   auth: {
     passwordInvalid: {
-      status: false,
+      status: 400,
       message: 'Password invalid'
     },
     requireAuth: {
-      status: false,
+      status: 400,
       message: 'Login require'
     },
     userNotFound: {
