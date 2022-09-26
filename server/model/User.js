@@ -2,6 +2,7 @@ const { mongoose } = require('mongoose')
 const express = require('express')
 const bcrypt = require('bcrypt')
 const message = require('../constant/message')
+const { requireLogin } = require('./functions')
 
 const router = express.Router()
 const SALT = 12
@@ -61,6 +62,9 @@ router.post('/signin', async (req, res) => {
 })
 
 // TODO get /:id to retrieve user info
+router.get('/', requireLogin, (req, res) => {
+
+})
 
 router.post('/logout', (req, res) => {
   // req.session.destroy()

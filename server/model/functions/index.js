@@ -1,3 +1,5 @@
+const message = require('../../constant/message')
+
 const requireLogin = (req, res, next) => {
   if(req.session.user_id) {
     next()
@@ -6,4 +8,6 @@ const requireLogin = (req, res, next) => {
   }
 }
 
-export default requireLogin
+module.exports = {
+  requireLogin
+}
