@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useSelector } from "react-redux"
@@ -7,10 +7,19 @@ import CartItem from "../components/CartItem"
 import { cartItems } from "../features/cart/cartSlice"
 import Footer from "../layout/footer"
 import Header from "../layout/header"
+import API from '../app/api'
 
 const CartList = () => {
   const navigate = useNavigate()
   const items = useSelector(cartItems)
+
+  const handleCheckout = useCallback(() => {
+    API.sync().then(() => {
+      navigate('/checkout')
+    }).catch(() => {
+      navigate('/signin')
+    })
+  }, [])
   const getTotal = () => {
     let total = 0
     for(let i of items) {
@@ -41,7 +50,7 @@ const CartList = () => {
               <div className="color-currency font-bold">{getTotal()}</div>
             </div>
             <div className="flex-row justify-end align-center mt-l">
-              <button className="primary-button" disabled>Checkout</button>
+              <button className="primary-button" onClick={handleCheckout}>Checkout</button>
             </div>
           </div>
         }
