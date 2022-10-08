@@ -58,6 +58,7 @@ to start both application (Used concurrently lib to run both site at same time)
 - [ ] Back-end
 
 ## TODO
+- signin post cors problem
 - "opinionated" eslint format (ongoing on FE)
 - unit test (ongoing on FE)
 - login credential for express
