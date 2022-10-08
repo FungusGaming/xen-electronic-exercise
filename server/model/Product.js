@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema(Product)
 const ProductModel = mongoose.model('Product', productSchema)
 // middleware that is specific to this router
 router.use((req, res, next) => {
-  console.log('Product:Time: ', Date.now())
+  console.log('Product:req.session', req.session.user_id);
   next()
 })
 router.get('/', async (req, res) => {

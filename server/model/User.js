@@ -41,6 +41,7 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/signin', async (req, res) => {
+  console.log('signin');
   try {
     const { username, password } = req.body
     const user = await userModel.findOne({ username })
@@ -49,7 +50,9 @@ router.post('/signin', async (req, res) => {
     }
     const validPassword = await bcrypt.compare(password, user.password)
     if (validPassword) {
+      console.log('user', user._id);
       req.session.user_id = user._id
+      console.log('req.session.user_id', req);
       res.json(message.success)
     } else {
       req.session.user_id = null
