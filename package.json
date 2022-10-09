@@ -11,5 +11,8 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "concurrently": "^7.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
