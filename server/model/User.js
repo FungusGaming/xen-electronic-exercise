@@ -50,17 +50,15 @@ router.post('/signin', async (req, res) => {
     }
     const validPassword = await bcrypt.compare(password, user.password)
     if (validPassword) {
-      console.log('user', user._id);
       req.session.user_id = user._id
-      console.log('req.session.user_id', req);
       res.json(message.success)
     } else {
       req.session.user_id = null
-      res.json(message.auth.passwordInvalid)
+      res.status(message.auth.passwordInvalid.status).json(message.auth.passwordInvalid)
     }
   } catch(err) {
     console.log(err);
-    res.status(404).json(message.fail)
+    res.status(message.fail.status).json(message.fail)
   }
 })
 

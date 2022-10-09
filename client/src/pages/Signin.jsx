@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import API from '../app/api'
 import { handleAxiosError } from '../app/function';
 import { setMessage } from '../features/message/messageSlice';
@@ -13,6 +13,8 @@ const Signin = () => {
   })
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [ searchParams ] = useSearchParams()
+  const redirect = searchParams.get("redirect")
   useEffect(() => {
     handleSync()
   }, [])
@@ -25,7 +27,7 @@ const Signin = () => {
   const handleSync = () => {
     API.sync().then(() => {
       dispatch(setMessage('Signing in'))
-      navigate('/')
+      navigate('/profile')
     }).catch(err => {
       dispatch(setMessage(handleAxiosError(err)))
     })
@@ -34,7 +36,8 @@ const Signin = () => {
   const handleSignIn = useCallback(() => {
     API.signin({ username: inputValues.username, password: inputValues.password }).then(() => {
       dispatch(setMessage('Welcome!'))
-      navigate('/')
+      if(redirect) navigate(redirect)
+      else navigate(-1)
     }).catch(err => {
       dispatch(setMessage(handleAxiosError(err)))
     })
