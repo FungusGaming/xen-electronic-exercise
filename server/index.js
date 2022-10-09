@@ -31,7 +31,7 @@ app.set('views', path.join(__dirname, 'views'))
 // for react retrieve express-session
 const corsOptions = {
   credentials: true,
-  // origin: 'http://localhost:3000'
+  origin: 'http://localhost:3000'
 }
 app.use(cors(corsOptions))
 app.use(express.json())
