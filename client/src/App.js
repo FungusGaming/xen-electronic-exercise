@@ -10,6 +10,7 @@ import CtaMessage from './components/CtaMessage';
 import './App.css';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
+import Profile from './pages/Profile';
 
 function App() {
   const ctaMessageObj = useSelector(ctaMessage)
@@ -21,6 +22,7 @@ function App() {
           <Route path="/cart" element={<CartList />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </BrowserRouter>

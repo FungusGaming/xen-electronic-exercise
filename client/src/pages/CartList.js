@@ -17,7 +17,7 @@ const CartList = () => {
     API.sync().then(() => {
       navigate('/checkout')
     }).catch(() => {
-      navigate('/signin')
+      navigate('/signin?redirect=/checkout')
     })
   }, [])
   const getTotal = () => {

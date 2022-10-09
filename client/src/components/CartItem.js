@@ -31,7 +31,7 @@ const CartItem = ({ item, index }) => {
 }
 
 CartItem.propTypes = {
-  item: PropTypes.obj,
+  item: PropTypes.any,
   index: PropTypes.number
 }
 

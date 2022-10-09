@@ -9,7 +9,9 @@ const API = {
   getAllProduct: () => axios.get(`${API_URL}/product`),
   signup: (data) => axios.post(`${API_URL}/user`, data),
   signin: (data) => axios.post(`${API_URL}/user/signin`, data),
-  sync: () => axios.get(`${API_URL}/user`)
+  sync: () => axios.get(`${API_URL}/user`),
+  logout: () => axios.post(`${API_URL}/user/logout`),
+
 }
 
 export default API
