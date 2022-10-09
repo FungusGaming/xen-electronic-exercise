@@ -67,8 +67,7 @@ router.post('/signin', async (req, res) => {
 // TODO get /:id to retrieve user info
 router.get('/', requireLogin, async (req, res) => {
   const user = await userModel.findById(req.session.user_id)
-  console.log(user);
-  
+  res.status(message.success.status).json(message.success)
 })
 
 router.post('/logout', (req, res) => {

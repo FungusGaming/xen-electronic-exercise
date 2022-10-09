@@ -40,7 +40,7 @@ const ProductCard = ({ className, product }) => {
 
 ProductCard.propTypes = {
   className: PropTypes.any,
-  product: PropTypes.obj,
+  product: PropTypes.any,
 }
 
 export default ProductCard

@@ -1,9 +1,9 @@
 const message = {
   success: {
-    status: true,
+    status: 200,
   },
   fail: {
-    status: false,
+    status: 400,
   },
   auth: {
     passwordInvalid: {
