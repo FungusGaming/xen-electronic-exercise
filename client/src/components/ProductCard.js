@@ -2,10 +2,12 @@ import { faAdd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback } from 'react'
 import { useDispatch  } from 'react-redux';
+import PropTypes from 'prop-types'
 import AppConfig from '../app/config'
 import SampleImg from '../assets/img/SampleImage.png'
 import { addToCart } from '../features/cart/cartSlice';
 import { setMessage } from '../features/message/messageSlice';
+
 const ProductCard = ({ className, product }) => {
   const { name, price } = product
   const dispatch = useDispatch();
@@ -35,5 +37,10 @@ const ProductCard = ({ className, product }) => {
     </div>
   )
 };
+
+ProductCard.propTypes = {
+  className: PropTypes.any,
+  product: PropTypes.obj,
+}
 
 export default ProductCard

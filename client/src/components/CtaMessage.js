@@ -1,7 +1,8 @@
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import PropTypes from 'prop-types'
 import { timeoutTimer } from "../app/config";
 import { ctaMessageAutoClose, resetMessage } from "../features/message/messageSlice";
 
@@ -24,6 +25,10 @@ const CtaMessage = ({ content }) => {
       </div>
     </div>
   )
+}
+
+CtaMessage.propTypes = {
+  content: PropTypes.any
 }
 
 export default CtaMessage;
