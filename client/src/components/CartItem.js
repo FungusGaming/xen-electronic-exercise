@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { removeFromCart } from "../features/cart/cartSlice";
 import SampleImg from '../assets/img/SampleImage.png'
 import { setMessage } from "../features/message/messageSlice";
-import { useCallback } from "react";
+import React, { useCallback } from "react";
+import PropTypes from 'prop-types'
 
 const CartItem = ({ item, index }) => {
   const { name, price } = item
@@ -27,6 +28,11 @@ const CartItem = ({ item, index }) => {
       </div>
     </div>
   )
+}
+
+CartItem.propTypes = {
+  item: PropTypes.obj,
+  index: PropTypes.number
 }
 
 export default CartItem
