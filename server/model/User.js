@@ -41,12 +41,16 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/signin', async (req, res) => {
-  console.log('signin');
   try {
     const { username, password } = req.body
+    if(!password) {
+      res.status(message.auth.passwordInvalid.status).json(message.auth.passwordInvalid)
+      return
+    }
     const user = await userModel.findOne({ username })
     if (!user) {
       res.status(message.auth.userNotFound.status).json(message.auth.userNotFound)
+      return
     }
     const validPassword = await bcrypt.compare(password, user.password)
     if (validPassword) {
