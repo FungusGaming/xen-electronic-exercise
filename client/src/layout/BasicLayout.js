@@ -4,7 +4,7 @@ import Footer from './footer'
 import Header from './header'
 
 const BasicLayout = ({ children, className }) => (
-  <div id='basic-layout' className={'flex-column flex-one ' + className}>
+  <div id='basic-layout' className={'flex-column flex-one b-main ' + className}>
     <Header />
     <div className='flex-one'>
       { children }

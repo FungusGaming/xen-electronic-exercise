@@ -4,6 +4,12 @@
   --currency-color: darkgreen;
   --red-color: red;
   --primary-color: #2e856e;
+  --custom-input-back: #e6e6e6;
+  --trans-button-color: black;
+  --text-white: white;
+  --badge-back: red;
+  --badge-color: white;
+  --font-color: black;
 }
 
 * {
@@ -51,11 +57,12 @@
   justify-content: flex-end;
 }
 
-.p-l {
-  padding: 1rem;
-}
 .p-xl {
   padding: 2rem;
+}
+
+.p-l {
+  padding: 1rem;
 }
 .pl-l {
   padding-left: 1rem;
@@ -63,19 +70,26 @@
 .pr-l {
   padding-right: 1rem;
 }
-
+.ph-l {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 .pv-l {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
+
 .p-m {
   padding: 0.5rem;
 }
-
 .ph-m {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+.pv-m {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .mb-xl {
@@ -130,6 +144,14 @@
   cursor: pointer;
 }
 
+.one-line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* end basic */
+
 /* color */
 .color-white {
   color: var(--white-color);
@@ -145,7 +167,7 @@
   background-color: var(--main-background);
 }
 .b-white {
-  background-color: white;
+  background-color: var(--white-color);
 }
 .b-primary {
   background-color: var(--primary-color);
@@ -156,6 +178,7 @@
 .font-bold {
   font-weight: bold;
 }
+/* end font */
 
 /* custom */
 .app {
@@ -191,7 +214,7 @@
 }
 
 .custom-input-container {
-  background: #d7d7d7;
+  background: var(--custom-input-back);
   border-radius: 5px;
   position: relative;
   padding: 0.5rem 0.75rem;
@@ -213,13 +236,15 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: 5fr 1fr 1fr;
+  grid-template-columns: 5fr 1fr 1fr 1fr;
 }
 
-.grid-header {
+.product-grid-header {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border-radius: 5px;
   font-weight: bold;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  
 }
 
 .product-action-button {
@@ -235,8 +260,8 @@
   position: absolute;
   right: -10px;
   top: -10px;
-  background-color: var(--red-color);
-  color: white;
+  background-color: var(--badge-back);
+  color: var(--badge-color);
   border-radius: 50%;
   padding: 3px 5px;
   font-size: 0.6rem;
@@ -245,8 +270,9 @@
 
 .trans-button {
   background-color: inherit;
+  color: var(--trans-button-color);
   border: none;
-  padding: 0 10px;
+  padding: 1rem 0.5rem;
   cursor: pointer;
 }
 .primary-button {
@@ -257,7 +283,7 @@
   background-color: var(--primary-color);
   border: none;
   padding: 10px 30px;
-  color: white;
+  color: var(--text-white);
   border-radius: 5px;
   font-weight: bold;
   font-size: 1rem;
@@ -322,9 +348,9 @@
 }
 
 .modal-body {
-  background-color: white;
+  background-color: var(--white-color);
   border-radius: 10px;
   min-width: 100px;
   min-height: 100px;
 }
-/* end modal*/
+/* end modal */

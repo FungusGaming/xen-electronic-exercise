@@ -1,7 +1,8 @@
 import React from 'react'
 import BasicLayout from '../layout/BasicLayout'
-import ProductTable from './ProuctTable'
+import ProductTable from './ProductTable'
 
+// TODO can add more function
 const Admin = () => {
   return (
     <BasicLayout>

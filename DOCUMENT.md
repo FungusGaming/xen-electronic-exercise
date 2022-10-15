@@ -1,5 +1,21 @@
 ## Documentation of project
+## TODO
+- get /:id to retrieve user info
+- improve profile ui
+- improve product ui
+- pagination on product list (BE and FE)
+- search on product list
 
+- "opinionated" eslint format (ongoing on FE)
+- unit test (ongoing on FE)
+- login credential for express
+- upon checkout add cart data to backend
+- express-session
+- deployment
+- pre-push
+- nyc script
+- sql injection for mongo
+- change theme dynamically
 ### Main objective
 A web application where customers can purchase their products online
 
@@ -57,15 +73,4 @@ to start both application (Used concurrently lib to run both site at same time)
 - [ ] Front-end
 - [ ] Back-end
 
-## TODO
-- signin post cors problem
-- "opinionated" eslint format (ongoing on FE)
-- unit test (ongoing on FE)
-- login credential for express
-- upon checkout add cart data to backend
-- express-session
-- deployment
-- pre-push
-- nyc script
-- sql injection for mongo
-- pagination on product list (BE and FE)
+
