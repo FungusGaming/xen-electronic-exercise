@@ -4,7 +4,6 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import API from '../app/api'
 import { handleAxiosError } from '../app/function';
 import { setMessage } from '../features/message/messageSlice';
-import BasicLayout from '../layout/basic';
 
 const Signin = () => {
   const [inputValues, setInputValues] = useState({
@@ -33,7 +32,8 @@ const Signin = () => {
     })
   }
 
-  const handleSignIn = useCallback(() => {
+  const handleSignIn = useCallback((e) => {
+    e.preventDefault()
     API.signin({ username: inputValues.username, password: inputValues.password }).then(() => {
       dispatch(setMessage('Welcome!'))
       if(redirect) navigate(redirect)
@@ -45,25 +45,26 @@ const Signin = () => {
 
   // TODO improve ui maybe merge with sign up?
   return (
-    <BasicLayout>
-      <div id='sign-in'>
-        <div>
-          <label>Username:</label>
-          <input name='username' value={inputValues.username} onChange={handleOnChange} type='text' />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input name='password' value={inputValues.password} onChange={handleOnChange} type='password' />
-        </div>
-        <button onClick={handleSignIn}>
-          Sign In
-        </button>
-        <Link to={'/signup'}>
-          Sign Up
-        </Link>
+    <div className='b-primary flex-column flex-one'>
+      <div className='flex-one flex-column align-center justify-center'>
+        <form id='sign-in' className='sign-in-form b-white flex-column p-xl' onSubmit={handleSignIn}>
+          <div className='input-f'>
+            <label>Username:</label>
+            <input name='username' value={inputValues.username} onChange={handleOnChange} type='text' />
+          </div>
+          <div className='input-f'>
+            <label>Password:</label>
+            <input name='password' value={inputValues.password} onChange={handleOnChange} type='password' />
+          </div>
+          <button className='primary-button mt-l'>
+            Sign In
+          </button>
+          <Link to={'/signup'} className='tertiary-button mt-l'>
+            Sign Up
+          </Link>
+        </form>
       </div>
-    </BasicLayout>
-
+    </div>
   )
 }
 
