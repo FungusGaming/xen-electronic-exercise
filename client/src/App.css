@@ -309,3 +309,22 @@
 }
 /* end input */
 /* end form */
+
+/* modal */
+.modal-overlay {
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 25%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal-body {
+  background-color: white;
+  border-radius: 10px;
+  min-width: 100px;
+  min-height: 100px;
+}
+/* end modal*/

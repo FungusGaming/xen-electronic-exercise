@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import API from '../app/api'
 import { handleAxiosError } from '../app/function';
 import { setMessage } from '../features/message/messageSlice';
-import BasicLayout from '../layout/basic';
+import BasicLayout from '../layout/BasicLayout';
 
 const Signup = () => {
   const [inputValues, setInputValues] = useState({
