@@ -15,18 +15,7 @@ const sessionOptions = {
   }
 }
 app.use(session(sessionOptions))
-
-mongoose.connect('mongodb+srv://' + process.env.MONGODB_USER + ':' + process.env.MONGODB_PASSWORD + '@fungusnodeexpress.wa1ov.mongodb.net/?retryWrites=true&w=majority&ssl=true')
-.then(() => {
-  console.log('Product Connection opened')
-})
-.catch(err => {
-  console.log('Product Error:')
-  console.log(err);
-})
-
 app.set('views', path.join(__dirname, 'views'))
-
 
 // for react retrieve express-session
 const corsOptions = {
@@ -37,11 +26,19 @@ app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+
+
 app.use((req, res, next) => {
-  // res.header('Access-Control-Allow-Origin', '*');
-  // res.header('Access-Control-Allow-Credentials', true);
-  // res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next()
+  mongoose.connect('mongodb+srv://' + process.env.MONGODB_USER + ':' + process.env.MONGODB_PASSWORD + '@fungusnodeexpress.wa1ov.mongodb.net/?retryWrites=true&w=majority&ssl=true')
+  .then(() => {
+    console.log('Mongo Connection opened')
+    next()
+  })
+  .catch(connectionErr => {
+    console.log('Mongo connection Error:')
+    console.log(connectionErr);
+    res.status(400).json('Server error. Please contact admin.')
+  })
 })
 
 const productRouter = require('./model/Product')
