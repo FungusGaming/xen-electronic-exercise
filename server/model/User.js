@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    default: '2'
+    default: '0'
   }
 })
 
@@ -30,6 +30,7 @@ userSchema.pre('save', async function(next) {
 
 const userModel = mongoose.model('User', userSchema)
 
+// signup
 router.post('/', async (req, res) => {
   const { password, username } = req.body
   const user = new userModel({
@@ -55,7 +56,7 @@ router.post('/signin', async (req, res) => {
     const validPassword = await bcrypt.compare(password, user.password)
     if (validPassword) {
       req.session.user_id = user._id
-      res.json(message.success)
+      res.json({ role: user.role })
     } else {
       req.session.user_id = null
       res.status(message.auth.passwordInvalid.status).json(message.auth.passwordInvalid)
@@ -69,7 +70,11 @@ router.post('/signin', async (req, res) => {
 // TODO get /:id to retrieve user info
 router.get('/', requireLogin, async (req, res) => {
   const user = await userModel.findById(req.session.user_id)
-  res.status(message.success.status).json(message.success)
+  if(user) {
+    res.status(message.success.status).json({ role: user.role })
+  } else {
+    res.status(message.fail.status).json(message.fail)
+  }
 })
 
 router.post('/logout', (req, res) => {

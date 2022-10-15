@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import API from '../app/api'
 import { handleAxiosError } from '../app/function';
 import { setMessage } from '../features/message/messageSlice';
+import { setRole } from '../features/user/userSlice';
 
 const Signin = () => {
   const [inputValues, setInputValues] = useState({
@@ -24,7 +25,8 @@ const Signin = () => {
   })
 
   const handleSync = () => {
-    API.sync().then(() => {
+    API.sync().then(({ data: { role } }) => {
+      dispatch(setRole(role))
       dispatch(setMessage('Signing in'))
       navigate('/profile')
     }).catch(err => {
@@ -34,7 +36,9 @@ const Signin = () => {
 
   const handleSignIn = useCallback((e) => {
     e.preventDefault()
-    API.signin({ username: inputValues.username, password: inputValues.password }).then(() => {
+    API.signin({ username: inputValues.username, password: inputValues.password })
+    .then(({ data: { role } }) => {
+      dispatch(setRole(role))
       dispatch(setMessage('Welcome!'))
       if(redirect) navigate(redirect)
       else navigate(-1)
