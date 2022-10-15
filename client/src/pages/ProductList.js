@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import API from '../app/api'
+import { handleAxiosError } from '../app/function'
 import ProductCard from '../components/ProductCard'
+import { setMessage } from '../features/message/messageSlice'
 import Footer from '../layout/footer'
 import Header from '../layout/header'
 
 const ProductList = () => {
   const [products, setProducts] = useState([])
+  const dispatch = useDispatch()
+
   const getProductList = () => {
     API.getAllProduct().then(({ data }) => {
       setProducts(data)
+    }).catch(err => {
+      dispatch(setMessage(handleAxiosError(err)))
     })
   }
   useEffect(() => {
