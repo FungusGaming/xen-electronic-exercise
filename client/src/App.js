@@ -11,8 +11,8 @@ import './App.css';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Profile from './pages/Profile';
-import Admin from './pages/Admin';
 import ProductForm from './pages/ProductForm';
+import ProductTable from './pages/ProductTable';
 
 function App() {
   const ctaMessageObj = useSelector(ctaMessage)
@@ -25,9 +25,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/products/:method/" element={<ProductForm />} />
-          <Route path="/products/:method/:id" element={<ProductForm />} />
+          <Route path="admin" element={<ProductTable />} />
+          <Route path="admin/products/:method/" element={<ProductForm />} />
+          <Route path="admin/products/:method/:id" element={<ProductForm />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </BrowserRouter>
