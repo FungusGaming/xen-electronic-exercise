@@ -1,6 +1,6 @@
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import API from "../app/api"
 import Modal from "../components/Modal"
@@ -15,16 +15,18 @@ const ProductTable = () => {
       setProducts(data)
     })
   }
-  const deleteProduct = () => {
-    API.deleteProduct(deleteId).then(() => {
-      setShowConfirmDeleteProductModel(!showConfirmDeleteProductModel)
-      getProductList()
-    })
-  }
-  const triggerDeleteProduct = (id) => {
+  const deleteProduct = useCallback(() => {
+    if(deleteId) {
+      API.deleteProduct(deleteId).then(() => {
+        setShowConfirmDeleteProductModel(!showConfirmDeleteProductModel)
+        getProductList()
+      })
+    }
+  }, [])
+  const triggerDeleteProduct = useCallback((id) => {
     setDeleteId(id)
     setShowConfirmDeleteProductModel(!showConfirmDeleteProductModel)
-  }
+  }, [])
   useEffect(() => {
     getProductList()
   }, [])
@@ -52,7 +54,7 @@ const ProductTable = () => {
                   <Link to={`products/edit/${product._id}`} className="trans-button">
                     <FontAwesomeIcon className="product-action-button pointer" icon={faEdit} />
                   </Link>
-                  <button className="trans-button ml-m" onClick={() => triggerDeleteProduct(product._id)}>
+                  <button className="trans-button ml-m" onClick={triggerDeleteProduct(product._id)}>
                     <FontAwesomeIcon className="product-action-button pointer" icon={faTrash} />
                   </button>
                 </div>
@@ -69,8 +71,8 @@ const ProductTable = () => {
           >
             <div className="flex-one">Are you sure to delete?</div>
             <div className="flex-row justify-end">
-              <button onClick={() => triggerDeleteProduct(0)}>Cancel</button>
-              <button className="ml-m" onClick={() => deleteProduct()}>Confirm</button>
+              <button onClick={triggerDeleteProduct(0)}>Cancel</button>
+              <button className="ml-m" onClick={deleteProduct()}>Confirm</button>
             </div>
           </Modal>
         </div>

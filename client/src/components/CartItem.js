@@ -13,7 +13,7 @@ const CartItem = ({ item, index }) => {
   const removeItemFromCart = useCallback(() => {
     dispatch(removeFromCart(index))
     dispatch(setMessage('Product removed'))
-  }, [dispatch, index])
+  }, [index])
   return (
     <div id='cart-item' className="flex-row align-center">
       <div className="flex-row align-center space-between p-l flex-one">
