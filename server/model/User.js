@@ -63,7 +63,7 @@ router.post('/signin', async (req, res) => {
     }
   } catch(err) {
     console.log(err);
-    res.status(message.fail.status).json(message.fail)
+    res.status(message.fail.code).json(message.fail)
   }
 })
 
@@ -71,9 +71,9 @@ router.post('/signin', async (req, res) => {
 router.get('/', requireLogin, async (req, res) => {
   const user = await userModel.findById(req.session.user_id)
   if(user) {
-    res.status(message.success.status).json({ role: user.role })
+    res.status(message.success.code).json({ role: user.role })
   } else {
-    res.status(message.fail.status).json(message.fail)
+    res.status(message.fail.code).json(message.fail)
   }
 })
 

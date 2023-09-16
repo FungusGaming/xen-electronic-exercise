@@ -1,21 +1,21 @@
 const message = {
   success: {
-    status: 200,
+    code: 200,
   },
   fail: {
-    status: 400,
+    code: 400,
   },
   auth: {
     passwordInvalid: {
-      status: 400,
+      code: 400,
       message: 'Password invalid'
     },
     requireAuth: {
-      status: 400,
+      code: 400,
       message: 'Login require'
     },
     userNotFound: {
-      status: 400,
+      code: 400,
       message: 'User not exist'
     }
   }

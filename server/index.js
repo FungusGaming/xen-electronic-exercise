@@ -43,8 +43,10 @@ app.use((req, res, next) => {
 
 const productRouter = require('./model/Product')
 const userRouter = require('./model/User');
+const tourismRouter = require('./model/Tourism')
 app.use('/product', productRouter)
 app.use('/user', userRouter)
+app.use('/tourism', tourismRouter)
 
 // error handler
 app.use((err, req, res, next) => {
